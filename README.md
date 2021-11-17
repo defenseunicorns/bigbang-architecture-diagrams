@@ -1,4 +1,26 @@
 # bigbang-architecture-diagrams
-Architecture diagrams for Platform One's Big Bang
 
-This repo contains architecture diagrams for Platform One's Big Bang secure software stack. They are saved as editable PNG files that can be opened and edited on [app.diagrams.net](https://app.diagrams.net). 
+<table>
+<tbody>
+<tr>
+<td>
+<img alt="C4 Model Legend" src="legend.drawio.svg"/>
+</td>
+<td>
+This repo contains architecture diagrams for Platform One's Big Bang secure software stack. They are saved as editable SVG files that can be opened and edited on [app.diagrams.net](https://app.diagrams.net). 
+
+These diagrams use the [C4 Model](https://c4model.com/), where system **C**ontexts are broken down into **C**apsules, which are broken down into **C**omponents, which are broken down into **C**ode
+</td>
+</tr>
+</tbody>
+</table>
+
+&nbsp;
+
+## Context Diagram - Mission app running on Big Bang (with CNAP)
+
+![Context Diagram - Mission app running on Big Bang (with CNAP)](context_bb_cnap.drawio.svg)
+
+## Capsule Diagram - Mission app running on Big Bang (with CNAP)
+
+![Capsule Diagram - Mission app running on Big Bang (with CNAP)](capsule_bb_cnap.drawio.svg)
