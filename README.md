@@ -15,3 +15,7 @@ These diagrams use the [C4 Model](https://c4model.com/), where system **C**ontex
 ## Capsule Diagram - Mission app running on Big Bang (with CNAP)
 
 ![Capsule Diagram - Mission app running on Big Bang (with CNAP)](capsule_bb_cnap.drawio.svg)
+
+## Capsule Diagram - CNAP
+
+![Capsule Diagram - CNAP](capsule_cnap.drawio.svg)
