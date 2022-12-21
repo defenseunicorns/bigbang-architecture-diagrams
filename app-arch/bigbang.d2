@@ -1,0 +1,497 @@
+comment: |md
+## Big Bang Deployment Flow
+See [Description](./DESCRIPTION.md) for details on the flow
+  
+|
+
+
+# Git Repository Components (repo1)
+gitrepo: {
+  label: Git Code Repository
+  style: {
+    fill: '#acd7e1'
+    stroke-width: 5
+    font-size: 20
+  }
+  cust-repo: {
+    label: "Customer Repo"
+    style: {
+      fill: '#e1d7ac'
+      font-size: 20
+    }
+    cust-env: {
+      label: "Customer Environment"
+      style: {
+        fill: '#e1d7ac'
+        font-size: 20
+      }
+      kust-over: {
+        label: "Kustomize Overlays (per env)"
+        style: {
+          fill: '#e1d7ac'
+          font-size: 20
+        }
+          bb-gr-cr: {
+            label: "Big Bang Flux GitRepository CR"
+            shape: image
+            icon: images/git-folder.svg
+            width: 200
+            height: 200
+            font-size: 10
+           }
+          bb-hr-cr: {
+            label: "Big Bang Flux HelmRelease CR"
+            shape: image
+            icon: images/git-folder.svg
+            width: 200
+            height: 200
+            font-size: 10
+          }
+      }
+      cust-bb-gr-cr: {
+        label: "Customer Big Bang Flux GitRepository CR"
+        shape: image
+        icon: images/git-folder.svg
+        width: 200
+        height: 200
+        font-size: 10
+      }
+      cust-bb-ks-cr: {
+        label: "Customer Big Bang Flux Kustomization CR"
+        shape: image
+        icon: images/git-folder.svg
+        width: 200
+        height: 200
+        font-size: 10
+      }
+      kust-result: {
+        label: "Kustomize Results (not a real repo)"
+        style: {
+          fill: '#a89732'
+          font-size: 20
+        }
+        bb-gr-cr: {
+          label: "Kustomize Big Bang Flux GitRepository CR"
+          shape: image
+          icon: images/git-kustomize-folder.svg
+          width: 200
+          height: 200
+          font-size: 10
+        }
+        bb-hr-cr: {
+          label: "Kustomize Big Bang Flux HelmRelease CR"
+          shape: image
+          icon: images/git-kustomize-folder.svg
+          width: 200
+          height: 200
+          font-size: 10
+        }
+      }
+    }
+  } 
+
+  bb-repo: {
+    label: "Big Bang Repo"
+    style: {
+      fill: '#e1d7ac'
+      font-size: 20
+    }
+    kust-base: {
+      label: "Kustomize Base"
+      style: {
+        fill: '#e1d7ac'
+        font-size: 20
+      }
+      bb-gr-cr: {
+        label: "Big Bang Flux GitRepository CR"
+        shape: image
+        icon: images/git-folder.svg
+        width: 200
+        height: 200
+        font-size: 10
+      }
+      bb-hr-cr: {
+        label: "Big Bang Flux HelmRelease CR"
+        shape: image
+        icon: images/git-folder.svg
+        width: 200
+        height: 200
+        font-size: 10
+      }
+    }
+    bb-umb: {
+      label: "Big Bang Umbrella"
+      style: {
+        fill: '#e1d7ac'
+        font-size: 20
+      }
+      bb-haproxy-gr-cr: {
+        label: "Big Bang HAProxy GitRepository CR"
+        shape: image
+        icon: images/git-folder.svg
+        width: 200
+        height: 200
+        font-size: 10
+      }
+      bb-haproxy-hr-cr: {
+        label: "Big Bang HAProxy HelmRelease CR"
+        shape: image
+        icon: images/git-folder.svg
+        width: 200
+        height: 200
+        font-size: 10
+      }
+      bb-logging-gr-cr: {
+        label: "Big Bang Logging GitRepository CR"
+        shape: image
+        icon: images/git-folder.svg
+        width: 200
+        height: 200
+        font-size: 10
+      }
+      bb-logging-hr-cr: {
+        label: "Big Bang Logging HelmRelease CR"
+        shape: image
+        icon: images/git-folder.svg
+        width: 200
+        height: 200
+        font-size: 10
+      }
+    }
+  } 
+
+  logging-repo: {
+    label: "Logging Chart Repo"
+    style: {
+      fill: '#e1d7ac'
+      font-size: 20
+    }
+    elastic-chart {
+      shape: image
+      icon: images/git-folder.svg
+      width: 200
+      height: 200
+      font-size: 10
+    }
+    kibana-chart {
+      shape: image
+      icon: images/git-folder.svg
+      width: 200
+      height: 200
+      font-size: 10
+    }
+    loki-chart {
+      shape: image
+      icon: images/git-folder.svg
+      width: 200
+      height: 200
+      font-size: 10
+    }
+  } 
+
+  haproxy-repo: {
+    label: "HAProxy Chart Repo"
+    style: {
+      fill: '#e1d7ac'
+      font-size: 20
+    }
+    haproxy-chart {
+      shape: image
+      icon: images/git-folder.svg
+      width: 200
+      height: 200
+      font-size: 10
+    }
+  } 
+}
+
+# Kubernetes Cluster Components
+k8s: {
+  label: K8s Cluster
+  style: {
+    fill: '#acd7e1'
+    stroke-width: 5
+    font-size: 20
+  }
+  flux: {
+    label: Flux Components
+    style: {
+      fill: '#e1d7ac'
+      font-size: 20
+    }
+    ks-cr: {
+      label: Kustomization CRs
+      style: {
+        fill: '#ace1ac'
+        font-size: 20
+      }
+      cust-bb-ks-cr: {
+        label: Customer Big Bang Kustomization CR
+        shape: image
+        icon: images/flux-kustomization-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+    }
+    hr-cr: {
+      label: HelmRelease CRs
+      style: {
+        fill: '#ace1ac'
+        font-size: 20
+      }
+      bb-hr-cr: {
+        label: Big Bang HelmRelease CR
+        shape: image
+        icon: images/flux-helmrelease-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+      haproxy-hr-cr: {
+        label: HAProxy HelmRelease CR
+        shape: image
+        icon: images/flux-helmrelease-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+      logging-hr-cr: {
+        label: Logging HelmRelease CR
+        shape: image
+        icon: images/flux-helmrelease-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+    }
+    hc-cr: {
+      label: HelmChart CRs
+      style: {
+        fill: '#ace1ac'
+        font-size: 20
+      }
+      haproxy-hc-cr: {
+        label: HAProxy HelmChart CR
+        shape: image
+        icon: images/flux-helmchart-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+      logging-hc-cr: {
+        label: Logging HelmChart CR
+        shape: image
+        icon: images/flux-helmchart-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+    }
+    gr-cr: {
+      label: GitRepository CRs
+      style: {
+        fill: '#ace1ac'
+        font-size: 20
+      }
+      cust-bb-gr-cr: {
+        label: Customer Big Bang GitRepository CR
+        shape: image
+        icon: images/flux-gitrepo-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+      bb-gr-cr: {
+        label: Big Bang GitRepository CR
+        shape: image
+        icon: images/flux-gitrepo-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+      haproxy-gr-cr: {
+        label: HAProxy GitRepository CR
+        shape: image
+        icon: images/flux-gitrepo-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+      logging-gr-cr: {
+        label: Logging GitRepository CR
+        shape: image
+        icon: images/flux-gitrepo-logo.svg
+        width: 200
+        height: 200
+        font-size: 10 
+      }
+    }
+  }
+  helm: {
+    label: Helm Releases
+    style: {
+      fill: '#e1d7ac'
+      font-size: 20
+    }
+    bb-hr: {
+      label: Big Bang Helm Release
+      shape: image
+      icon: images/helm-release-logo.svg
+      width: 200
+      height: 200
+      font-size: 10 
+    }
+    logging-hr: {
+      label: Logging Helm Release
+      shape: image
+      icon: images/helm-release-logo.svg
+      width: 200
+      height: 200
+      font-size: 10 
+    }
+    haproxy-hr: {
+      label: HAProxy Helm Release
+      shape: image
+      icon: images/helm-release-logo.svg
+      width: 200
+      height: 200
+      font-size: 10 
+    }
+  }
+  ns: {
+    label: Namespaces
+    style: {
+      fill: '#e1d7ac'
+      font-size: 20
+    }
+    logging-ns: {
+      label: Logging Namespace
+      style: {
+        fill: '#ace1ac'
+        font-size: 20
+      }
+      logging-pods: {
+        label: Logging Pods
+        shape: image
+        icon: images/pod.svg
+        font-size: 10 
+      }
+      logging-svcs: {
+        label: Logging Services
+        shape: image
+        icon: images/svc.svg
+        font-size: 10
+      }
+      logging-cms: {
+        label: Logging Configmaps
+        shape: image
+        icon: images/cm.svg
+        font-size: 10
+      }
+    }
+    haproxy-ns: {
+      label: HAProxy Namespace
+      style: {
+        fill: '#ace1ac'
+        font-size: 20
+      }
+      haproxy-pods: {
+        label: HAProxy Pods
+        shape: image
+        icon: images/pod.svg
+        font-size: 10
+      }
+      haproxy-svcs: { 
+        label: HAProxy Services
+        shape: image
+        icon: images/svc.svg
+        font-size: 10
+      }
+      haproxy-cms: {
+        label: HAProxy Configmaps
+        shape: image
+        icon: images/cm.svg
+        font-size: 10
+      }
+    }
+  }
+}
+
+# Container Registry Components (registry11)
+registry: {
+  label: Container Registry
+  style: {
+    fill: '#acd7e1'
+    stroke-width: 5
+    font-size: 20
+  }
+  haproxy-image: {
+    label: haproxy/haproxy22:v2.2.21
+    shape: image
+    icon: images/container-logo.svg
+    width: 200
+    height: 200
+    font-size: 10
+  }
+  elastic-image: {
+    label: elastic/elasticsearch/elasticsearch:8.5.0
+    shape: image
+    icon: images/container-logo.svg
+    width: 200
+    height: 200
+    font-size: 10
+  }
+  kibana-image: {
+    label: elastic/kibana/kibana:8.5.0 
+    shape: image
+    icon: images/container-logo.svg
+    width: 200
+    height: 200
+    font-size: 10
+  }
+  loki-image: {
+    label: grafana/loki:2.6.1 
+    shape: image
+    icon: images/container-logo.svg
+    width: 200
+    height: 200
+    font-size: 10
+  }
+}
+
+
+# Arrows describing relationships
+gitrepo.bb-repo.kust-base.bb-gr-cr -> gitrepo.cust-repo.cust-env.kust-over.bb-gr-cr -> gitrepo.cust-repo.cust-env.kust-result.bb-gr-cr: '[1a]' #kustomize
+gitrepo.bb-repo.kust-base.bb-hr-cr ->gitrepo.cust-repo.cust-env.kust-over.bb-hr-cr -> gitrepo.cust-repo.cust-env.kust-result.bb-hr-cr: '[1a]' #kustomize
+gitrepo.cust-repo.cust-env.kust-result.bb-hr-cr -> k8s.flux.hr-cr.bb-hr-cr: '[1b]' #creates bb flux hr cr
+gitrepo.cust-repo.cust-env.kust-result.bb-gr-cr -> k8s.flux.gr-cr.bb-gr-cr: '[1c]' #creates bb flux gr cr
+k8s.flux.hr-cr.bb-hr-cr <-> k8s.flux.gr-cr.bb-gr-cr: '[1d]' #bb hr cr uses bb gr cr as source
+k8s.flux.gr-cr.bb-gr-cr <-> gitrepo.bb-repo: '[1e]' #sync of the bb gr cr with the bb repo
+gitrepo.cust-repo.cust-env.cust-bb-ks-cr -> k8s.flux.ks-cr.cust-bb-ks-cr: '[2a]' #creates the cust bb ks cr
+gitrepo.cust-repo.cust-env.cust-bb-gr-cr -> k8s.flux.gr-cr.cust-bb-gr-cr: '[2b]' #creates the cust bb gr cr
+k8s.flux.ks-cr.cust-bb-ks-cr <-> k8s.flux.gr-cr.cust-bb-gr-cr: '[2c]' #cust bb ks cr uses cust bb gr cr as source
+k8s.flux.gr-cr.cust-bb-gr-cr <-> gitrepo.cust-repo: '[2d]' #sync of the cust bb gr cr with the cust repo
+k8s.flux.hr-cr.bb-hr-cr -> k8s.helm.bb-hr: '[3]'
+k8s.helm.bb-hr -> k8s.flux.hr-cr.haproxy-hr-cr: '[4a]' #creates flux haproxy hr cr
+k8s.helm.bb-hr -> k8s.flux.hr-cr.logging-hr-cr: '[4a]' #creates flux logging hr cr
+k8s.helm.bb-hr -> k8s.flux.gr-cr.haproxy-gr-cr: '[4b]' #creates flux haproxy gitrepo cr
+k8s.helm.bb-hr -> k8s.flux.gr-cr.logging-gr-cr: '[4b]' #creates flux logging gitrepo cr
+k8s.flux.gr-cr.haproxy-gr-cr <-> gitrepo.haproxy-repo: '[4c]' #reconciles repo
+k8s.flux.gr-cr.logging-gr-cr <-> gitrepo.logging-repo: '[4c]' #reconciles repo
+k8s.flux.hr-cr.haproxy-hr-cr <-> k8s.flux.gr-cr.haproxy-gr-cr: '[4d]' #haproxy hr cr uses haproxy gr cr as source
+k8s.flux.hr-cr.logging-hr-cr <-> k8s.flux.gr-cr.logging-gr-cr: '[4d]' #logging hr cr uses logging gr cr as source
+k8s.flux.hr-cr.haproxy-hr-cr -> k8s.flux.hc-cr.haproxy-hc-cr: '[4e]' #creates flux haproxy hc cr
+k8s.flux.hr-cr.logging-hr-cr -> k8s.flux.hc-cr.logging-hc-cr: '[4e]' #creates flux logging hc cr
+k8s.flux.hr-cr.haproxy-hr-cr -> k8s.helm.haproxy-hr: '[5]' #creates haproxy helm release
+k8s.flux.hr-cr.logging-hr-cr -> k8s.helm.logging-hr: '[5]' #creates logging helm release
+k8s.helm.haproxy-hr -> k8s.ns.haproxy-ns.haproxy-pods: '[6]' #creates pods
+k8s.helm.haproxy-hr -> k8s.ns.haproxy-ns.haproxy-svcs: '[6]' #creates services
+k8s.helm.haproxy-hr -> k8s.ns.haproxy-ns.haproxy-cms: '[6]' #creates configmaps
+k8s.helm.logging-hr -> k8s.ns.logging-ns.logging-pods: '[6]' #creates pods
+k8s.helm.logging-hr -> k8s.ns.logging-ns.logging-svcs: '[6]' #creates services
+k8s.helm.logging-hr -> k8s.ns.logging-ns.logging-cms: '[6]' #creates configmaps
+k8s.ns.haproxy-ns.haproxy-pods -> registry.haproxy-image: '[7]' #pulls haproxy image
+k8s.ns.logging-ns.logging-pods -> registry.elastic-image: '[7]' #pulls elastic image
+k8s.ns.logging-ns.logging-pods -> registry.kibana-image: '[7]' #pulls kibana image
+k8s.ns.logging-ns.logging-pods -> registry.loki-image: '[7]' #pulls loki image
