@@ -2,6 +2,6 @@
 
 This repo contains architecture diagrams for Platform One's Big Bang secure software stack.
 
-* [c4](./c4)
+* [Simple/pretty](./c4) -- Uses the [C4 model](https://c4model.com/)
 
-* [app-arch](./app-arch)
+* [Technical](./app-arch) -- Uses [D2](https://github.com/terrastruct/d2)
